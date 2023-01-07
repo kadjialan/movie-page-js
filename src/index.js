@@ -1,31 +1,16 @@
-import './styles/styles.css';
+import ui from './ui';
+import data from './data';
+import api from './api';
 
-const plusBtn = document.querySelector('.plus');
-const minusBtn = document.querySelector('.minus');
-const textContainer = document.querySelector('span');
-
-let data = 0;
-
-function add() {
-  const value = Math.floor(Math.random() * 1000);
-  data = Math.max(data, value);
-  return value;
+function updateMovies(movies) {
+  data.setMovies(movies);
+  ui.renderMovies(data.getMovies());
 }
 
-function sub() {
-  const value = Math.floor(Math.random() * 1000);
-  data = Math.min(data, value);
-  return value;
-}
-
-function displayValue(now, text = data) {
-  textContainer.innerHTML = `${text} (${now})`;
-}
-
-plusBtn.addEventListener('click', () => {
-  displayValue(add());
+ui.renderPage({
+  onSearch: (searchTerm) => {
+    api.searchMovies(searchTerm).then(updateMovies);
+  },
 });
 
-minusBtn.addEventListener('click', () => {
-  displayValue(sub());
-});
+api.getPopularMovies().then(updateMovies);

@@ -1,27 +1,71 @@
 body {
+  margin: 0;
+  padding: 0;
+  font: 16px;
+  font-family: sans-serif;
+}
+
+.hero {
+  background: bisque;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  padding: 12px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.search button {
+  height: 60px;
+  padding: 12px;
+  border: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.movie {
+  min-height: 550px;
+  width: 450px;
+  background-color: aqua;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie p {
+  opacity: 0;
+}
+
+.movie:hover p {
+  background-color: rgba(235, 44, 44, 0.581);
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding: 10px;
+  color: white;
+  opacity: 1;
 }
 
-.main {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+h2 {
+  position: absolute;
+  bottom: 0;
+  color: rgb(247, 234, 234);
 }
-
-button {
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
-  border-radius: 40px;
-  border: none;
-  background-color: sandybrown;
-}
-
-span {
-  font-size: 20px;
-  font-weight: bold;
-}
-
